@@ -1,0 +1,12 @@
+.container__top {
+  margin-top: 70px !important;
+}
+tbody > tr > td:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+table {
+  margin-bottom: 0 !important;
+}

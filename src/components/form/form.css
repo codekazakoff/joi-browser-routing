@@ -1,0 +1,132 @@
+* {
+  user-select: none;
+}
+
+.load {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 520px;
+  background: #fff;
+  margin-top: 25px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
+}
+
+.load__inner {
+  padding: 15px 20px;
+}
+.load__title {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 0;
+  font-family: sans-serif;
+}
+
+.form__control label {
+  color: #000 !important;
+  display: block;
+  font-size: 15px !important;
+  font-family: sans-serif;
+  padding-left: 15px;
+  font-weight: 500;
+}
+
+input,
+select {
+  width: 100%;
+  height: 35px;
+  outline: none;
+  font-size: 15px;
+  padding-left: 15px;
+  border-radius: 28px;
+  border: 1px solid #f4f4f4;
+  background-color: #f8f7fc;
+  color: #c0bfc4 !important;
+}
+
+select {
+  font-size: 15px;
+}
+select::marker {
+  margin-right: 5px;
+}
+input::placeholder {
+  font-size: 15px;
+  color: #c0bfc4 !important;
+}
+input:focus {
+  background: #fff !important;
+}
+
+.load__btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+button {
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  justify-content: center;
+  padding: 8px 26px;
+  background-color: #efefef;
+}
+
+.load__btn-icon {
+  opacity: 0.7;
+  font-size: 16px;
+  margin-right: 5px;
+}
+.load__btn-link {
+  font-size: 14px;
+  color: #000;
+}
+.left {
+  margin-left: 5px;
+  opacity: 1;
+}
+
+.load__btn-times {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+}
+
+.errors {
+  font-size: 14px;
+  color: #ff5252;
+  padding-left: 20px;
+  padding-top: 3px;
+}
+
+.form__radio {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+input[type="radio"] {
+  margin-top: 8px;
+  height: 15px;
+  width: 15px;
+  margin-left: 10px;
+  display: inline-block;
+}
+.form__radio-left,
+.form__radio-right {
+  display: flex;
+  align-items: center;
+}
+
+.form__radio-right label,
+.form__radio-left label {
+  display: inline-block;
+  margin-top: 5px;
+}

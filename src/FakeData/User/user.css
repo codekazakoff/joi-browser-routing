@@ -1,0 +1,15 @@
+.user {
+  margin-top: 80px;
+}
+
+.form-label {
+  margin-bottom: 0;
+}
+
+.form-group {
+  margin-top: 8px;
+}
+
+.form-group:first-child {
+  margin-top: 0;
+}
