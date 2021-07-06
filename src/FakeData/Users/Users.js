@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import Loader from "react-loader-spinner";
 import UserForm from "../User/UserForm";
 import { toast } from "react-toastify";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import Joi from "joi-browser";
 import UsersTable from "./UsersTable";
 import { UsersLoader } from "../../styled/fakeData/Users";
@@ -29,6 +29,7 @@ class Users extends Component {
       },
       errors: {},
     };
+    this.linkRef = createRef();
   }
 
   async componentDidMount() {
@@ -94,11 +95,9 @@ class Users extends Component {
 
     const errors = this.validate();
 
-    console.log(errors);
-
-    if (errors)
+    if (errors) {
       toast.error("Malumot qushish uchun Inputlarni to'ldirishingiz shart!");
-    else {
+    } else {
       this.setState((prevState) => ({
         users: [
           ...prevState.users,
@@ -106,6 +105,7 @@ class Users extends Component {
         ],
       }));
       toast.success("Malumot qushish mufaqatiyatli yakunlandi");
+      this.linkRef.current.click();
     }
   };
 
@@ -116,7 +116,7 @@ class Users extends Component {
   };
 
   render() {
-    const { users, user } = this.state;
+    const { users, user, errors } = this.state;
     const { handleSubmit, handleChange, handleDelete } = this;
     if (users.length === 0)
       return (
@@ -125,26 +125,35 @@ class Users extends Component {
         </UsersLoader>
       );
     return (
-      <Switch>
-        <Route
-          path="/users"
-          render={(props) => (
-            <UsersTable {...props} users={users} handleDelete={handleDelete} />
-          )}
-        />
-        <Route
-          path="/add"
-          render={(props) => (
-            <UserForm
-              {...props}
-              user={user}
-              onSubmit={handleSubmit}
-              onChange={handleChange}
-            />
-          )}
-        />
-        <Route path="/user/:id" component={User} />
-      </Switch>
+      <>
+        <Link ref={this.linkRef} to="/users"></Link>
+
+        <Switch>
+          <Route
+            path="/users"
+            render={(props) => (
+              <UsersTable
+                {...props}
+                users={users}
+                handleDelete={handleDelete}
+              />
+            )}
+          />
+          <Route
+            path="/add"
+            render={(props) => (
+              <UserForm
+                {...props}
+                user={user}
+                errors={errors}
+                onSubmit={handleSubmit}
+                onChange={handleChange}
+              />
+            )}
+          />
+          <Route path="/user/:id" component={User} />
+        </Switch>
+      </>
     );
   }
 }

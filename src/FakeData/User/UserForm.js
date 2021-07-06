@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
-
 import "./user.css";
 import UserInput from "./UserInput";
 class UserForm extends Component {
